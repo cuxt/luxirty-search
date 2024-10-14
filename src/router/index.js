@@ -3,6 +3,7 @@ import Home from '@/components/Home.vue'
 import Results from '@/components/Results.vue'
 
 const router = createRouter({
+  mode: "history",
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
@@ -13,7 +14,8 @@ const router = createRouter({
     {
       path: '/search',
       name: 'Results',
-      component: Results
+      component: Results,
+      props: route => ({ query: route.query.q })
     }
   ]
 })
